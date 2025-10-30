@@ -34,6 +34,16 @@
             android:orientation="vertical"
             android:gravity="center_horizontal">
 
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@string/author_name"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
             <!-- کارت وضعیت -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
@@ -158,5 +168,14 @@
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:lottie_autoPlay="false"
+        app:lottie_rawRes="@raw/confetti"
+        app:lottie_repeatCount="0" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
