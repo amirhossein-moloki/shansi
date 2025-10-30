@@ -52,7 +52,10 @@ class MainActivity : AppCompatActivity() {
         binding.btnHint.setOnClickListener {
             viewModel.onHint(binding.etGuess.text.toString())
         }
-        binding.btnNext.setOnClickListener { viewModel.goNextLevel() }
+        binding.btnNext.setOnClickListener {
+            binding.lottieAnimationView.visibility = View.GONE
+            viewModel.goNextLevel()
+        }
         binding.btnRestart.setOnClickListener { viewModel.restartGame() }
     }
 
@@ -77,6 +80,8 @@ class MainActivity : AppCompatActivity() {
             GameStatus.WON -> {
                 playSound(successSoundId)
                 vibrate(longArrayOf(0, 100, 100, 100))
+                binding.lottieAnimationView.visibility = View.VISIBLE
+                binding.lottieAnimationView.playAnimation()
                 binding.btnNext.isVisible = true
                 setGameInProgress(false)
             }
@@ -89,9 +94,13 @@ class MainActivity : AppCompatActivity() {
             else -> {}
         }
 
-        if (state.message.contains("Invalid") || state.message.contains("out of range")) {
+        if (state.error != null) {
             val shake = AnimationUtils.loadAnimation(this, R.anim.shake)
             binding.tilGuess.startAnimation(shake)
+            binding.tvMessage.text = when (state.error) {
+                ErrorType.INVALID_INPUT -> getString(R.string.msg_invalid_input)
+                ErrorType.OUT_OF_RANGE -> getString(R.string.msg_out_of_range, state.rangeMax)
+            }
         }
     }
 

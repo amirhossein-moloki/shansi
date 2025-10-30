@@ -1,13 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">GuessGame</string>
+    <string name="app_name">حدس عدد (شانسی)</string>
     <string name="title">حدس عدد</string>
-    <string name="stage_fmt">مرحله: 1 از 5</string>
-    <string name="range_fmt">بازه: 1 تا 10</string>
-    <string name="chances_fmt">شانس‌ها: 3</string>
-    <string name="hint_input">عددی حدس بزن...</string>
+    <string name="author_name">امیرحسین ملوکی</string>
+
+    <string name="stage_fmt">مرحله: %d</string>
+    <string name="range_fmt">بازه: ۱ تا %d</string>
+    <string name="chances_fmt">شانس: %d</string>
+
+    <string name="hint_input">حدس خود را وارد کنید…</string>
     <string name="btn_guess">ثبت حدس</string>
-    <string name="btn_hint">راهنما (−1 شانس)</string>
-    <string name="msg_start">بازی شروع شد! عدد درست را حدس بزن.</string>
+    <string name="btn_hint">راهنما (-۱ شانس)</string>
     <string name="btn_next">مرحله بعد</string>
     <string name="btn_restart">شروع مجدد</string>
+
+    <string name="msg_start">برای شروع، یک عدد حدس بزن!</string>
+    <string name="msg_too_high">پایین‌تر بیا 👇</string>
+    <string name="msg_too_low">بالاتر برو 👆</string>
+    <string name="msg_win">🎉 برنده شدی! عدد %d بود.</string>
+    <string name="msg_lose">😕 باختی! عدد %d بود.</string>
+    <string name="msg_no_chances">شانسی باقی نمانده!</string>
+    <string name="msg_invalid_input">لطفاً یک عدد معتبر وارد کن.</string>
+    <string name="msg_out_of_range">عدد باید بین ۱ و %d باشد.</string>
 </resources>

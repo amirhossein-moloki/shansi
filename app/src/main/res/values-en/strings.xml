@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Shansi (Guess the Number)</string>
+    <string name="title">Guess the Number</string>
+    <string name="author_name">Amirhossein Maleki</string>
+
+    <string name="stage_fmt">Stage: %d</string>
+    <string name="range_fmt">Range: 1 to %d</string>
+    <string name="chances_fmt">Chances: %d</string>
+
+    <string name="hint_input">Enter your guess…</string>
+    <string name="btn_guess">Guess</string>
+    <string name="btn_hint">Hint (-1 Chance)</string>
+    <string name="btn_next">Next Level</string>
+    <string name="btn_restart">Restart</string>
+
+    <string name="msg_start">Guess a number to start!</string>
+    <string name="msg_too_high">Too high 👇</string>
+    <string name="msg_too_low">Too low 👆</string>
+    <string name="msg_win">🎉 You won! The number was %d.</string>
+    <string name="msg_lose">😕 You lost! The number was %d.</string>
+    <string name="msg_no_chances">No chances left!</string>
+    <string name="msg_invalid_input">Please enter a valid number.</string>
+    <string name="msg_out_of_range">The number must be between 1 and %d.</string>
+</resources>
