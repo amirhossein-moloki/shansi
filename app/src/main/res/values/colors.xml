@@ -1,0 +1,10 @@
+<resources>
+    <color name="brand_primary">#8AB4F8</color>
+    <color name="brand_secondary">#F8B4D9</color>
+    <color name="bg_dark">#0E1116</color>
+    <color name="card_dark">#161A22</color>
+    <color name="text_primary">#E6E9EF</color>
+    <color name="text_secondary">#A2A9B4</color>
+    <color name="accent_good">#7EE787</color>
+    <color name="accent_warn">#FFB86B</color>
+</resources>

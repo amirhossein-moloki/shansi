@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">GuessGame</string>
+    <string name="title">حدس عدد</string>
+    <string name="stage_fmt">مرحله: 1 از 5</string>
+    <string name="range_fmt">بازه: 1 تا 10</string>
+    <string name="chances_fmt">شانس‌ها: 3</string>
+    <string name="hint_input">عددی حدس بزن...</string>
+    <string name="btn_guess">ثبت حدس</string>
+    <string name="btn_hint">راهنما (−1 شانس)</string>
+    <string name="msg_start">بازی شروع شد! عدد درست را حدس بزن.</string>
+    <string name="btn_next">مرحله بعد</string>
+    <string name="btn_restart">شروع مجدد</string>
+</resources>
