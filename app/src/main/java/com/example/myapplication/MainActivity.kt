@@ -4,8 +4,6 @@ import android.animation.ValueAnimator
 import android.graphics.Color
 import android.media.SoundPool
 import android.os.Bundle
-import android.os.Vibrator
-import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -76,13 +74,11 @@ class MainActivity : AppCompatActivity() {
             }
             GameStatus.WON -> {
                 playSound(successSoundId)
-                vibrate(longArrayOf(0, 100, 100, 100))
                 binding.btnNext.isVisible = true
                 setGameInProgress(false)
             }
             GameStatus.LOST -> {
                 playSound(failureSoundId)
-                vibrate(longArrayOf(0, 400))
                 binding.btnRestart.isVisible = true
                 setGameInProgress(false)
             }
@@ -106,14 +102,6 @@ class MainActivity : AppCompatActivity() {
     private fun playSound(soundId: Int) {
         soundPool.play(soundId, 1f, 1f, 1, 0, 1f)
     }
-
-    private fun vibrate(pattern: LongArray) {
-        val vibrator = getSystemService(VIBRATOR_SERVICE) as Vibrator
-        if (vibrator.hasVibrator()) {
-            vibrator.vibrate(pattern, -1)
-        }
-    }
-
     private fun startNameAnimation() {
         val animator = ValueAnimator.ofArgb(
             getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor()

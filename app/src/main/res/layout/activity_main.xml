@@ -2,11 +2,13 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_dark_gradient">
+    android:background="@drawable/bg_dark_gradient"
+    tools:theme="@style/Theme.Material3.Dark.NoActionBar"
+    tools:context=".MainActivity">
 
-    <!-- نوار بالا -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topBar"
         android:layout_width="match_parent"
@@ -19,7 +21,6 @@
         app:titleCentered="true"
         app:layout_scrollFlags="scroll|enterAlways" />
 
-    <!-- بدنه -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -44,7 +45,6 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <!-- کارت وضعیت -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -72,21 +72,20 @@
                         android:id="@+id/tvRange"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
                         android:text="@string/range_fmt"
-                        android:textColor="@color/text_secondary"
-                        android:layout_marginTop="6dp" />
+                        android:textColor="@color/text_secondary" />
 
                     <TextView
                         android:id="@+id/tvChances"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
                         android:text="@string/chances_fmt"
-                        android:textColor="@color/text_secondary"
-                        android:layout_marginTop="2dp" />
+                        android:textColor="@color/text_secondary" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- ورودی عدد -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilGuess"
                 style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
@@ -94,48 +93,54 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_input"
                 app:boxStrokeColor="@color/brand_primary"
-                app:boxBackgroundColor="@color/card_dark">
+                app:boxBackgroundColor="@color/card_dark"
+                app:hintEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etGuess"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
+                    android:hint="@string/hint_input"
                     android:textColor="@color/text_primary"
-                    android:textColorHint="@color/text_secondary" />
+                    android:textColorHint="@color/text_secondary"
+                    android:importantForAccessibility="yes" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- دکمه‌ها -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="14dp">
+                android:layout_marginTop="14dp"
+                android:orientation="horizontal">
 
+                <!-- Tonal -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnGuess"
-                    style="@style/Widget.Material3.Button.Tonal"
+                    style="?attr/materialButtonTonalStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:minHeight="48dp"
                     android:layout_weight="1"
                     android:text="@string/btn_guess"
+                    android:textColor="@color/text_primary"
                     app:cornerRadius="16dp" />
 
                 <Space
                     android:layout_width="12dp"
                     android:layout_height="wrap_content" />
 
+                <!-- Outlined -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnHint"
-                    style="@style/Widget.Material3.Button.Outlined"
+                    style="?attr/materialButtonOutlinedStyle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:minHeight="48dp"
                     android:layout_weight="1"
                     android:text="@string/btn_hint"
                     app:cornerRadius="16dp" />
             </LinearLayout>
 
-            <!-- پیام -->
             <TextView
                 android:id="@+id/tvMessage"
                 android:layout_width="match_parent"
@@ -145,22 +150,25 @@
                 android:textSize="15sp"
                 android:layout_marginTop="14dp" />
 
-            <!-- کنترل‌ها -->
+            <!-- Filled (پیش‌فرض تم) -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnNext"
-                style="@style/Widget.Material3.Button.Filled"
+                style="?attr/materialButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:minHeight="48dp"
                 android:text="@string/btn_next"
                 android:visibility="gone"
                 app:cornerRadius="16dp"
                 android:layout_marginTop="12dp" />
 
+            <!-- Tonal -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnRestart"
-                style="@style/Widget.Material3.Button.Tonal"
+                style="?attr/materialButtonTonalStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:minHeight="48dp"
                 android:text="@string/btn_restart"
                 android:visibility="gone"
                 app:cornerRadius="16dp"
