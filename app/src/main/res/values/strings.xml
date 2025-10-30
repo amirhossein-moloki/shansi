@@ -1,13 +1,17 @@
 <resources>
-    <string name="app_name">GuessGame</string>
-    <string name="title">حدس عدد</string>
-    <string name="stage_fmt">مرحله: 1 از 5</string>
-    <string name="range_fmt">بازه: 1 تا 10</string>
-    <string name="chances_fmt">شانس‌ها: 3</string>
-    <string name="hint_input">عددی حدس بزن...</string>
-    <string name="btn_guess">ثبت حدس</string>
-    <string name="btn_hint">راهنما (−1 شانس)</string>
-    <string name="msg_start">بازی شروع شد! عدد درست را حدس بزن.</string>
-    <string name="btn_next">مرحله بعد</string>
-    <string name="btn_restart">شروع مجدد</string>
+    <string name="app_name">Shansi</string>
+    <string name="guess_the_number">حدس عدد</string>
+    <string name="enter_your_guess">حدس خود را وارد کنید</string>
+    <string name="guess">ثبت حدس</string>
+    <string name="hint">راهنما</string>
+    <string name="next_level">مرحله بعد</string>
+    <string name="restart">شروع مجدد</string>
+    <string name="invalid_input">ورودی نامعتبر</string>
+    <string name="out_of_range">خارج از بازه</string>
+    <string name="correct_guess">درست بود، برو مرحله بعد</string>
+    <string name="wrong_guess">اشتباهه! دوباره امتحان کن</string>
+    <string name="you_won">شما بردید!</string>
+    <string name="you_lost">شما باختید!</string>
+    <string name="bigger">بزرگ‌تره</string>
+    <string name="smaller">کوچیک‌تره</string>
 </resources>
