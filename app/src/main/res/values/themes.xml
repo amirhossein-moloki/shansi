@@ -1,3 +1,22 @@
-<resources>
-    <style name="Theme.MyGuess" parent="Theme.Material3.Dark.NoActionBar"/>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme used across the whole app. -->
+    <style name="Base.Theme.MyApplication" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Keep the system bars transparent for the gradient background. -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:enforceStatusBarContrast">false</item>
+        <item name="android:enforceNavigationBarContrast">false</item>
+        <item name="android:forceDarkAllowed">false</item>
+
+        <!-- Brand colouring to ensure Material components pick up the right palette. -->
+        <item name="colorPrimary">@color/brand_primary</item>
+        <item name="colorSecondary">@color/brand_primary</item>
+        <item name="colorTertiary">@color/brand_primary</item>
+    </style>
+
+    <style name="Theme.MyApplication" parent="Base.Theme.MyApplication" />
+
+    <style name="Theme.MyGuess" parent="Theme.Material3.Dark.NoActionBar" tools:ignore="UnusedResources" />
 </resources>
