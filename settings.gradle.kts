@@ -8,9 +8,16 @@ pluginManagement {
             }
         }
         mavenCentral()
-        gradlePluginPortal()
+        gradlePluginPortal {
+            content {
+                includeGroupByRegex("org\\.gradle.*")
+                includeGroupByRegex("org\\.jetbrains.*")
+                includeGroupByRegex("com\\.android.*")
+            }
+        }
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -19,6 +26,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "My Application"
+rootProject.name = "MyApplication"
 include(":app")
- 

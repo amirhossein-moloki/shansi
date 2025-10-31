@@ -22,4 +22,11 @@
     <string name="msg_no_chances">شانسی باقی نمانده!</string>
     <string name="msg_invalid_input">لطفاً یک عدد معتبر وارد کن.</string>
     <string name="msg_out_of_range">عدد باید بین ۱ و %d باشد.</string>
+
+
+
+    <string name="action_settings">تنظیمات</string>
+    <string name="first_fragment_label">صفحه اول</string>
+    <string name="second_fragment_label">صفحه دوم</string>
+
 </resources>
