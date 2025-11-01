@@ -22,6 +22,12 @@
     <string name="msg_no_chances">شانسی باقی نمانده!</string>
     <string name="msg_invalid_input">لطفاً یک عدد معتبر وارد کن.</string>
     <string name="msg_out_of_range">عدد باید بین ۱ و %d باشد.</string>
+    <string name="msg_new_round">مرحله جدید شروع شد!</string>
+    <string name="msg_wrong_guess">حدس اشتباه!</string>
+    <string name="msg_no_hint_chance">شانس کافی برای راهنمایی نداری.</string>
+    <string name="msg_hint_enter_number">اول یه عدد وارد کن تا راهنمایی بگیری.</string>
+    <string name="msg_hint_lower">عدد از %d کوچکتره.</string>
+    <string name="msg_hint_higher">عدد از %d بزرگتره.</string>
 
 
 

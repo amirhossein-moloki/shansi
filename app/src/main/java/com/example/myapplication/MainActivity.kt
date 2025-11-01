@@ -19,7 +19,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        val viewModelFactory = MainViewModelFactory(applicationContext)
+        viewModel = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
 
         setupUI()
         observeViewModel()

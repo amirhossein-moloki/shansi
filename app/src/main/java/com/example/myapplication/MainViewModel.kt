@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -9,13 +10,17 @@ import kotlin.math.log10
 import kotlin.math.pow
 import kotlin.math.roundToInt
 
-class MainViewModel : ViewModel() {
+class MainViewModel(private val context: Context) : ViewModel() {
 
     private val _gameState = MutableStateFlow(GameState())
     val gameState: StateFlow<GameState> = _gameState
 
     init {
         startGame()
+    }
+
+    private fun getString(resId: Int, vararg formatArgs: Any): String {
+        return context.getString(resId, *formatArgs)
     }
 
     fun startGame() {
@@ -32,7 +37,7 @@ class MainViewModel : ViewModel() {
             target = target,
             rangeMax = rangeMax,
             remainingChances = chances,
-            message = "A new round has started!",
+            message = getString(R.string.msg_new_round),
             status = GameStatus.RUNNING,
             error = null
         )
@@ -54,7 +59,7 @@ class MainViewModel : ViewModel() {
         when {
             guess == _gameState.value.target -> {
                 _gameState.value = _gameState.value.copy(
-                    message = "You guessed it! The number was ${_gameState.value.target}.",
+                    message = getString(R.string.msg_win, _gameState.value.target),
                     status = GameStatus.WON,
                     error = null
                 )
@@ -62,7 +67,7 @@ class MainViewModel : ViewModel() {
             currentChances == 0 -> {
                 _gameState.value = _gameState.value.copy(
                     remainingChances = 0,
-                    message = "You lost! The number was ${_gameState.value.target}.",
+                    message = getString(R.string.msg_lose, _gameState.value.target),
                     status = GameStatus.LOST,
                     error = null
                 )
@@ -70,7 +75,7 @@ class MainViewModel : ViewModel() {
             else -> {
                 _gameState.value = _gameState.value.copy(
                     remainingChances = currentChances,
-                    message = if (guess > _gameState.value.target) "Too high!" else "Too low!",
+                    message = getString(R.string.msg_wrong_guess),
                     error = null
                 )
             }
@@ -79,15 +84,19 @@ class MainViewModel : ViewModel() {
 
     fun onHint(currentGuessStr: String?) {
         if (_gameState.value.remainingChances <= 1) {
-            _gameState.value = _gameState.value.copy(message = "Not enough chances for a hint.")
+            _gameState.value =
+                _gameState.value.copy(message = getString(R.string.msg_no_hint_chance))
             return
         }
 
         val currentGuess = currentGuessStr?.toIntOrNull()
         val message = when {
-            currentGuess == null -> "Enter a number first to get a hint."
-            currentGuess > _gameState.value.target -> "The number is lower than $currentGuess."
-            else -> "The number is higher than $currentGuess."
+            currentGuess == null -> getString(R.string.msg_hint_enter_number)
+            currentGuess > _gameState.value.target -> getString(
+                R.string.msg_hint_lower,
+                currentGuess
+            )
+            else -> getString(R.string.msg_hint_higher, currentGuess)
         }
         _gameState.value = _gameState.value.copy(
             remainingChances = _gameState.value.remainingChances - 1,
@@ -110,7 +119,7 @@ data class GameState(
     val target: Int = 0,
     val rangeMax: Int = 10,
     val remainingChances: Int = 3,
-    val message: String = "Welcome!",
+    val message: String = "",
     val status: GameStatus = GameStatus.IDLE,
     val error: ErrorType? = null
 )
