@@ -35,16 +35,6 @@
             android:orientation="vertical"
             android:gravity="center_horizontal">
 
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text="@string/author_name"
-                android:textColor="@color/text_primary"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -113,6 +103,21 @@
                 android:layout_marginTop="14dp"
                 android:orientation="horizontal">
 
+                <!-- Outlined -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnHint"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:layout_weight="1"
+                    android:text="@string/btn_hint"
+                    app:cornerRadius="16dp" />
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="wrap_content" />
+
                 <!-- Tonal -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnGuess"
@@ -123,21 +128,6 @@
                     android:layout_weight="1"
                     android:text="@string/btn_guess"
                     android:textColor="@color/text_primary"
-                    app:cornerRadius="16dp" />
-
-                <Space
-                    android:layout_width="12dp"
-                    android:layout_height="wrap_content" />
-
-                <!-- Outlined -->
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnHint"
-                    style="?attr/materialButtonOutlinedStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:minHeight="48dp"
-                    android:layout_weight="1"
-                    android:text="@string/btn_hint"
                     app:cornerRadius="16dp" />
             </LinearLayout>
 
@@ -173,6 +163,24 @@
                 android:visibility="gone"
                 app:cornerRadius="16dp"
                 android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/author_name"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvNameEn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/author_name_en"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

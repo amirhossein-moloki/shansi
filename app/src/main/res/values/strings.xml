@@ -2,7 +2,8 @@
 <resources>
     <string name="app_name">حدس عدد (شانسی)</string>
     <string name="title">حدس عدد</string>
-    <string name="author_name">امیرحسین ملوکی</string>
+    <string name="author_name">سعید جوان مرد</string>
+    <string name="author_name_en">Saeed Javanmard</string>
 
     <string name="stage_fmt">مرحله: %d</string>
     <string name="range_fmt">بازه: ۱ تا %d</string>
