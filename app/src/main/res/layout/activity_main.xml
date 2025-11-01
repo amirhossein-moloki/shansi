@@ -16,7 +16,7 @@
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:background="@android:color/transparent"
-        android:title="@string/title"
+        android:title="@string/app_name"
         android:titleTextColor="@color/text_primary"
         app:titleCentered="true"
         app:layout_scrollFlags="scroll|enterAlways" />
