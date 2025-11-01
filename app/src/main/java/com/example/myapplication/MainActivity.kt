@@ -4,6 +4,8 @@ import android.animation.ValueAnimator
 import android.graphics.Color
 import android.media.SoundPool
 import android.os.Bundle
+import android.os.Vibrator
+import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -50,7 +52,10 @@ class MainActivity : AppCompatActivity() {
         binding.btnHint.setOnClickListener {
             viewModel.onHint(binding.etGuess.text.toString())
         }
-        binding.btnNext.setOnClickListener { viewModel.goNextLevel() }
+        binding.btnNext.setOnClickListener {
+            binding.lottieAnimationView.visibility = View.GONE
+            viewModel.goNextLevel()
+        }
         binding.btnRestart.setOnClickListener { viewModel.restartGame() }
     }
 
@@ -74,20 +79,28 @@ class MainActivity : AppCompatActivity() {
             }
             GameStatus.WON -> {
                 playSound(successSoundId)
+                vibrate(longArrayOf(0, 100, 100, 100))
+                binding.lottieAnimationView.visibility = View.VISIBLE
+                binding.lottieAnimationView.playAnimation()
                 binding.btnNext.isVisible = true
                 setGameInProgress(false)
             }
             GameStatus.LOST -> {
                 playSound(failureSoundId)
+                vibrate(longArrayOf(0, 400))
                 binding.btnRestart.isVisible = true
                 setGameInProgress(false)
             }
             else -> {}
         }
 
-        if (state.message.contains("Invalid") || state.message.contains("out of range")) {
+        if (state.error != null) {
             val shake = AnimationUtils.loadAnimation(this, R.anim.shake)
             binding.tilGuess.startAnimation(shake)
+            binding.tvMessage.text = when (state.error) {
+                ErrorType.INVALID_INPUT -> getString(R.string.msg_invalid_input)
+                ErrorType.OUT_OF_RANGE -> getString(R.string.msg_out_of_range, state.rangeMax)
+            }
         }
     }
 
@@ -102,6 +115,14 @@ class MainActivity : AppCompatActivity() {
     private fun playSound(soundId: Int) {
         soundPool.play(soundId, 1f, 1f, 1, 0, 1f)
     }
+
+    private fun vibrate(pattern: LongArray) {
+        val vibrator = getSystemService(VIBRATOR_SERVICE) as Vibrator
+        if (vibrator.hasVibrator()) {
+            vibrator.vibrate(pattern, -1)
+        }
+    }
+
     private fun startNameAnimation() {
         val animator = ValueAnimator.ofArgb(
             getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor()
