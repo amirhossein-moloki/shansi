@@ -177,13 +177,5 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottieAnimationView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        app:lottie_autoPlay="false"
-        app:lottie_rawRes="@raw/confetti"
-        app:lottie_repeatCount="0" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
