@@ -73,9 +73,14 @@ class MainViewModel(private val context: Context) : ViewModel() {
                 )
             }
             else -> {
+                val message = if (guess > _gameState.value.target) {
+                    getString(R.string.msg_too_high)
+                } else {
+                    getString(R.string.msg_too_low)
+                }
                 _gameState.value = _gameState.value.copy(
                     remainingChances = currentChances,
-                    message = getString(R.string.msg_wrong_guess),
+                    message = message,
                     error = null
                 )
             }
